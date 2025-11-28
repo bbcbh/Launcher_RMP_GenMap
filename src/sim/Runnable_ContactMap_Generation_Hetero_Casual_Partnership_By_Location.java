@@ -100,12 +100,12 @@ public class Runnable_ContactMap_Generation_Hetero_Casual_Partnership_By_Locatio
 						int src_loc = Integer.parseInt(direction[0]);
 						int tar_loc = Integer.parseInt(direction[1]);
 
-						if (src_loc != indiv_stat[Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_CURRENT_LOC]) {
+						if (src_loc != indiv_stat[Abstract_Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_CURRENT_LOC]) {
 							System.err.printf("Warning! Movement mismatch\n");
 						}
 
-						indiv_stat[Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_CURRENT_LOC] = tar_loc;
-						int gender = indiv_stat[Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_ENTER_GRP]
+						indiv_stat[Abstract_Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_CURRENT_LOC] = tar_loc;
+						int gender = indiv_stat[Abstract_Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_ENTER_GRP]
 								/ NUM_AGE_GRP;
 
 						int[] extra_stat = seek_extra_partners.get(pid);
@@ -140,11 +140,11 @@ public class Runnable_ContactMap_Generation_Hetero_Casual_Partnership_By_Locatio
 				int[] extra_sought_ent_seeker = seek_extra_partners.get(pid_seeker);
 				if (extra_sought_ent_seeker != null) {
 					int[] indiv_stat_seeker = indiv_map.get(pid_seeker);
-					int gender_seeker = indiv_stat_seeker[Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_ENTER_GRP]
+					int gender_seeker = indiv_stat_seeker[Abstract_Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_ENTER_GRP]
 							/ NUM_AGE_GRP;
-					int common_loc = indiv_stat_seeker[Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_CURRENT_LOC];
-					if (indiv_stat_seeker[Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_EXIT_POP_AT] != -1
-							&& indiv_stat_seeker[Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_EXIT_POP_AT] < currentTime) {
+					int common_loc = indiv_stat_seeker[Abstract_Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_CURRENT_LOC];
+					if (indiv_stat_seeker[Abstract_Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_EXIT_POP_AT] != -1
+							&& indiv_stat_seeker[Abstract_Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_EXIT_POP_AT] < currentTime) {
 						// Remove expired
 						seek_extra_partners.remove(pid_seeker);
 						seek_extra_by_loc = seek_extra_by_gender_loc.get(gender_seeker);
@@ -166,7 +166,7 @@ public class Runnable_ContactMap_Generation_Hetero_Casual_Partnership_By_Locatio
 									seek_extra_partners.get(pid_r)[0]--;
 									if (seek_extra_partners.get(pid_r)[0] == 0) {
 										int gender_r = indiv_map.get(
-												pid_r)[Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_ENTER_GRP]
+												pid_r)[Abstract_Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_ENTER_GRP]
 												/ NUM_AGE_GRP;
 										seek_extra_partners.remove(pid_r);
 										seek_extra_by_loc = seek_extra_by_gender_loc.get(gender_r);
@@ -220,7 +220,7 @@ public class Runnable_ContactMap_Generation_Hetero_Casual_Partnership_By_Locatio
 			while (time_from <= currentTime) {
 				int pid = Integer.parseInt(ent_sp[1]);
 				int gender = indiv_map
-						.get(pid)[Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_ENTER_GRP]
+						.get(pid)[Abstract_Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_ENTER_GRP]
 						/ NUM_AGE_GRP;
 
 				int partner_sought = Integer.parseInt(ent_sp[2]);
@@ -237,7 +237,7 @@ public class Runnable_ContactMap_Generation_Hetero_Casual_Partnership_By_Locatio
 					}
 
 					int curLoc = indiv_map
-							.get(pid)[Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_CURRENT_LOC];
+							.get(pid)[Abstract_Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_CURRENT_LOC];
 					ArrayList<Integer> seek_extra_pids = seek_extra_by_loc.get(curLoc);
 					if (seek_extra_pids == null) {
 						seek_extra_pids = new ArrayList<>();
@@ -274,19 +274,19 @@ public class Runnable_ContactMap_Generation_Hetero_Casual_Partnership_By_Locatio
 					break;
 				}
 
-				int[] indiv_ent = new int[Runnable_MetaPopulation_Transmission_RMP_MultiInfection.LENGTH_INDIV_MAP];
-				indiv_ent[Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_ENTER_POP_AT] = enter_at;
-				indiv_ent[Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_EXIT_POP_AT] = Integer
+				int[] indiv_ent = new int[Abstract_Runnable_MetaPopulation_Transmission_RMP_MultiInfection.LENGTH_INDIV_MAP];
+				indiv_ent[Abstract_Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_ENTER_POP_AT] = enter_at;
+				indiv_ent[Abstract_Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_EXIT_POP_AT] = Integer
 						.parseInt(str_ent[2]);
-				indiv_ent[Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_ENTER_POP_AGE] = Integer
+				indiv_ent[Abstract_Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_ENTER_POP_AGE] = Integer
 						.parseInt(str_ent[3]);
-				indiv_ent[Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_CURRENT_GRP] = Integer
+				indiv_ent[Abstract_Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_CURRENT_GRP] = Integer
 						.parseInt(str_ent[4]);
 
-				indiv_ent[Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_HOME_LOC] = home_loc;
-				indiv_ent[Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_ENTER_GRP] = Integer
+				indiv_ent[Abstract_Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_HOME_LOC] = home_loc;
+				indiv_ent[Abstract_Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_ENTER_GRP] = Integer
 						.parseInt(str_ent[4]);
-				indiv_ent[Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_CURRENT_LOC] = home_loc;
+				indiv_ent[Abstract_Runnable_MetaPopulation_Transmission_RMP_MultiInfection.INDIV_MAP_CURRENT_LOC] = home_loc;
 				indiv_map.put(pid, indiv_ent);
 
 				lines_demographic.loadNextLine();
