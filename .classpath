@@ -21,6 +21,5 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/Package_MetaPopulation"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Package_ClusterModel"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/Package_BaseModel"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/Launcher_RMP_POC"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
