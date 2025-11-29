@@ -186,11 +186,8 @@ public class Runnable_RMP_Map_Generation implements Runnable {
 		boolean genCMap = (gen_setting & GEN_SETTING_CONTACT_MAP) != 0;
 		boolean genCMapCasual = (gen_setting & GEN_SETTING_CASUAL_MAP) != 0;
 
-		loadedProperties.put(Simulation_Gen_MetaPop.PROP_BASEDIR, propFile.getParent());
-		loadedProperties.put(Simulation_Gen_MetaPop.PROP_LOC_MAP, loc_map);
-		loadedProperties.put(Simulation_Gen_MetaPop.PROP_INDIV_STAT, new ConcurrentHashMap<Integer, int[]>());
-		loadedProperties.put(Simulation_Gen_MetaPop.PROP_PARNTER_EXTRA_SOUGHT,
-				Collections.synchronizedList(new ArrayList<int[]>()));
+		//loadedProperties.put(Simulation_Gen_MetaPop.PROP_BASEDIR, propFile.getParent());
+		loadedProperties.put(Simulation_Gen_MetaPop.PROP_LOC_MAP, loc_map);		
 
 		if (genDemo) {
 			// Generate demographic and mobility
